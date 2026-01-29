@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200..800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -21,6 +21,22 @@
   }
 
   .btn-primary {
-    @apply w-full text-sm bg-primary text-white p-2 rounded my-1 hover:bg-blue-600;
+    @apply w-full text-sm bg-primary text-white p-2 rounded my-1;
+  }
+
+  .btn-primary:hover {
+    @apply bg-blue-600;
+  }
+
+  .icon-btn {
+    @apply text-xl text-slate-300 cursor-pointer;
+  }
+
+  .icon-btn:hover {
+    @apply text-primary;
+  }
+
+  .input-label {
+    @apply text-xs text-slate-400;
   }
 }
