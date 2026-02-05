@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../../components/Input/PasswordInput";
 import { validateEmail } from "../../utils/helper";
@@ -63,7 +62,7 @@ try {
 
   return (
     <>
-      <Navbar />
+    
 
       <div className="flex items-center justify-center mt-28">
         <div className="w-96 border rounded bg-white px-7 py-10">
@@ -82,6 +81,11 @@ try {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <p className="text-right text-xs mt-2">
+  <Link to="/forgot-password" className="text-primary underline">
+    Forgot Password?
+  </Link>
+</p>
 
             {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
 

@@ -3,9 +3,26 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     fullName: { type: String },
-    email: { type: String },
-    password: { type: String },
-    createdOn: { type: Date, default: new Date().getTime() },
+
+    email: { 
+        type: String, 
+        required: true,
+        unique: true 
+    },
+
+    password: { 
+        type: String, 
+        required: true 
+    },
+
+    // 🔹 ADD THESE TWO FIELDS HERE
+    resetToken: { type: String },
+    resetTokenExpire: { type: Date },
+
+    createdOn: { 
+        type: Date, 
+        default: Date.now 
+    },
 });
 
 module.exports = mongoose.model("User", userSchema);
