@@ -1,0 +1,33 @@
+name: SonarCloud Scan
+
+on:
+  push:
+    branches:
+      - develop          # Trigger scan on pushes to develop
+  pull_request:
+    branches:
+      - develop          # Trigger scan for PRs into develop
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'   # adjust to your Node.js version
+
+      - name: Install dependencies
+        run: npm install       # adjust if using yarn or pnpm
+
+      - name: Run SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1.10
+        with:
+          projectKey: Shahdev32_shahdev-mern-10pshine
+          organization: shahdev32
+          token: ${{ secrets.SONAR_TOKEN }}  # Make sure you add this token in GitHub Secrets
+
