@@ -3,7 +3,10 @@ require("dotenv").config();
 const config = require("./config.json");
 const mongoose = require("mongoose");
 
-mongoose.connect(config.connectionString);
+//mongoose.connect(config.connectionString);
+if (process.env.NODE_ENV !== "test") {
+  mongoose.connect(config.connectionString);
+}
 
 const User = require("./models/user.model");
 
@@ -361,7 +364,11 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
 });
 
 
-app.listen(8000);
+//app.listen(8000);
+
+if (process.env.NODE_ENV !== "test") {
+  app.listen(8000);
+}
 
 module.exports = app;
 
