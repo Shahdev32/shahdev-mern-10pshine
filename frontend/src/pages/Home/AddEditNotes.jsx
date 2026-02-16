@@ -88,6 +88,8 @@ const editNote = async () => {
   return (
     <div className="relative">
       <button
+        aria-label="Close"
+        data-testid="close-btn"
         className="w-10 h-10 rounded-full flex items-center justify-center absolute -top-3 -right-3 hover:bg-slate-50"
         onClick={onClose}
       >
